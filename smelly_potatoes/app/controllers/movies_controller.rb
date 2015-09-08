@@ -1,7 +1,12 @@
 class MoviesController < ApplicationController
 
   def index
-    render :json_test
+    @movies = Movie.all
+
+    respond_to do |format|
+      format.html 
+      format.json {render :json => @movies }
+    end
   end
 
   def new
@@ -18,7 +23,7 @@ class MoviesController < ApplicationController
         format.html {render :new, notice: "didn't create movie"}
         format.json { render json: @movie.errors, status: :unprocessable_entity }
       end
-      end
+   
     end
   end
 
