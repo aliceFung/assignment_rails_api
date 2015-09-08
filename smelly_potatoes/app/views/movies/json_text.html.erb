@@ -1,9 +1,16 @@
 <h2>Create a Movie</h2>
-<%= form_for @movie, remote: true do |f|%>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.submit "Create Movie", id: "submit-movie" %>
-<% end %>
+<%# form_for @movie, remote: true do |f|%>
+  <%# f.label :name %>
+  <%# f.text_field :name %>
+  <%# f.submit "Create Movie", id: "submit-movie" %>
+<%# end %>
+
+<form action='/movies' remote="true" method="POST">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name='movie[name]'>
+  <input type="submit" name ="submit" value="Create Movie">
+</form>
+
 <hr>
 <table border="1" style="width:100%" id='movie-table'>
   <tr>
@@ -56,7 +63,7 @@
 
 <script>
   $(document).ready(function(){
-    
+
     movieObj.init();
   });
 </script>

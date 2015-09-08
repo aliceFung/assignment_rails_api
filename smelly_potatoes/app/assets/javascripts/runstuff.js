@@ -27,6 +27,27 @@ var movieObj = {
   },
 
   attachListener: function(){
-    $("#submit-movie").click(function(){movieObj.addMovie()});
+    // document.getElementById("submit-movie").addEventListener("click", function(event){
+    //   event.preventDefault();
+    //   $.ajax({
+    //     type: 'POST',
+    //     url: 'http://localhost:3000/movies.json',
+    //     dataType: 'json',
+    //     success: function(json){
+    //       movieObj.addMovie(json);
+    //     }
+    //   });
+    // });
+    $("#submit-movie").click(function(event){
+      event.preventDefault();
+      $.ajax({
+        type: 'POST',
+        url: 'http://localhost:3000/movies.json',
+        dataType: 'json',
+        success: function(json){
+          movieObj.addMovie(json);
+        }
+      });
+    });
   }
-}
+};
