@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
+    @movie = Movie.new
     @movies = Movie.all
 
     respond_to do |format|
@@ -9,21 +10,21 @@ class MoviesController < ApplicationController
     end
   end
 
-  def new
-    @movie = Movie.new
-  end
+  # def new
+  # end
 
   def create
     @movie = Movie.new(params_list)
-    respond_to do |format|
-      if @movie.save
-        format.html {redirect_to @movie, notice: "new movie added"}
-        format.json {render :show}
-      else
-        format.html {render :new, notice: "didn't create movie"}
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
+    if @movie.save
+      respond_to do |format|
+        format.html {render 'movies/json_text.html'}
+        format.json {render :json => @movie}
       end
-   
+    else
+      respond_to do |format|
+        format.html {render 'movies/json_text.html'}
+        format.json {}
+      end
     end
   end
 

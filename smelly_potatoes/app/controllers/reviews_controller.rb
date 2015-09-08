@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @movies = Movie.all
 
     respond_to |format|
-      format.html 
+      format.html
       format.json
     end
   end

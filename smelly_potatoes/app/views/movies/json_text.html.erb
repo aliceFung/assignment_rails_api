@@ -1,3 +1,10 @@
+<h2>Create a Movie</h2>
+<%= form_for @movie, remote: true do |f|%>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create Movie" %>
+<% end %>
+<hr>
 <table border="1" style="width:100%" id='movie-table'>
   <tr>
     <th>Movie ID</th>
