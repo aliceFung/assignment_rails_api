@@ -1,5 +1,14 @@
 class ReviewsController < ApplicationController
 
+  def index
+    @movies = Movie.all
+
+    respond_to |format|
+      format.html 
+      format.json
+    end
+  end
+
   def new
     @review = Review.new
   end
