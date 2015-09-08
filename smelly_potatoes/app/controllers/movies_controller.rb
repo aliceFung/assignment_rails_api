@@ -1,5 +1,9 @@
 class MoviesController < ApplicationController
 
+  def index
+    render :json_test
+  end
+
   def new
     @movie = Movie.new
   end
