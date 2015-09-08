@@ -7,7 +7,7 @@
 
 <form action='/movies' remote="true" method="POST" id='submit-movie'>
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-  <input type="text" name='movie[name]'>
+  <input type="text" name='movie[name]' id='movie-name'>
   <input type="submit" name ="submit" value="Create Movie">
 </form>
 

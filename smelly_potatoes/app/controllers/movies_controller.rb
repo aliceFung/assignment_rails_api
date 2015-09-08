@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
       respond_to do |format|
         format.html {render 'movies/json_text.html'}
         format.json {render :json => @movie}
+        # format.js { redirect_to @movie }
       end
     else
       respond_to do |format|

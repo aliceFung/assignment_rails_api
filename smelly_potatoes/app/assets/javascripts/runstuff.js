@@ -39,10 +39,13 @@ var movieObj = {
     //   });
     // });
     $("#submit-movie").click(function(event){
+      var str = $("#movie-name").val();
+      console.log(str)
       event.preventDefault();
       $.ajax({
         type: 'POST',
         url: 'http://localhost:3000/movies.json',
+        data: {movie: {name: str}},
         dataType: 'json',
         success: function(json){
           movieObj.addMovie(json);
