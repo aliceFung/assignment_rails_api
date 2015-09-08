@@ -1,5 +1,8 @@
 var movieObj = {
-
+  init: function(){
+    movieObj.attachListener();
+    movieObj.getMovies();
+  },
 
   getMovies: function(){
     $.ajax({
@@ -21,5 +24,9 @@ var movieObj = {
 
   addMovie: function(movie){
     $('#movie-table').append('<tr><td>'+movie.id+' </td><td>'+movie.name+'</td><td>'+movie.release_date + '</td></tr>');
+  },
+
+  attachListener: function(){
+    $("#submit-movie").click(function(){movieObj.addMovie()});
   }
 }
