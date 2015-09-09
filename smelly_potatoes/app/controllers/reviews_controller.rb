@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
       #   format.html
       #   format.js
       # end
-      redirect_to reviews_path
+      render :index
 
     else
       flash.now[:error]= "didn't create review"

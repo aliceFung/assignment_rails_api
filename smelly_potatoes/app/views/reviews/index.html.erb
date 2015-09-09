@@ -8,7 +8,7 @@
   <input type="text" name='review[review_text]' placeholder='review here'>
   <select id="movie-list" name='review[movie_id]'>
     <% @movies.each do |movie|%>
-      <option  value="<%=movie.id%>"><%=movie.name%><option>
+      <option value="<%=movie.id%>"><%=movie.name%></option>
     <% end %>
   </select>
   <input type="submit" name ="submit" value="Create Review">
