@@ -18,14 +18,17 @@
 <% end %>
 
 <table border="1" style="width:100%" id='reviews-table'>
-  <tr>
-    <th>Review ID</th>
-    <th>Movie ID</th>
-    <th>Reviewer Name</th>
-    <th>Review Title</th>
-    <th>Review Text</th>
-    <th>Review Date</th>
-  </tr>
+  <thead> 
+    <tr>
+      <th>Review ID</th>
+      <th>Movie ID</th>
+      <th>Reviewer Name</th>
+      <th>Review Title</th>
+      <th>Review Text</th>
+      <th>Review Date</th>
+    </tr>
+  </thead>
+  <tbody> 
   <tr>
     <td>1</td>
     <td>1</td>
@@ -35,6 +38,7 @@
     <td>03/16/2012</td>
 
   </tr>
+
   <tr>
     <td>2</td>
     <td>2</td>
@@ -44,5 +48,6 @@
     <td>03/16/2013</td>
   </tr>
   <%= render @reviews %>
+  </tbody>
 </table>
 

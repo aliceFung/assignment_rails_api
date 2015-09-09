@@ -1,1 +1,2 @@
-$('#reviews-table').prepend('<%= escape_javascript(render @review) %>');
+// $('#reviews-table').prepend('<%= escape_javascript(render @review) %>');
+$('#reviews-table tbody').prepend('<%= escape_javascript(render @review) %>');
