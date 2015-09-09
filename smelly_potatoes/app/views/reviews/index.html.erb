@@ -1,0 +1,45 @@
+<h1>Smelly Potatoes Reviews</h1>
+<h2>Create a Review</h2>
+
+<form action='/reviews' remote="true" method="POST" id='submit-movie'>
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type="text" name='review[reviewer_name]' placeholder='name'>
+  <input type="text" name='review[title]' placeholder='title'>
+  <input type="text" name='review[review_text]' placeholder='review here'>
+  <select id="movie-list" name='review[movie_id]'>
+    <% @movies.each do |movie|%>
+      <option  value="<%=movie.id%>"><%=movie.name%><option>
+    <% end %>
+  </select>
+  <input type="submit" name ="submit" value="Create Review">
+</form>
+
+<table border="1" style="width:100%" id='reviews-table'>
+  <tr>
+    <th>Review ID</th>
+    <th>Movie ID</th>
+    <th>Reviewer Name</th>
+    <th>Review Title</th>
+    <th>Review Text</th>
+    <th>Review Date</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td>someone</td>
+    <td>cool review title</td>
+    <td>Review Text</td>
+    <td>03/16/2012</td>
+
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>2</td>
+    <td>someone else</td>
+    <td>ok review title</td>
+    <td>Review Text cool effects</td>
+    <td>03/16/2013</td>
+  </tr>
+  <%= render @reviews %>
+</table>
+

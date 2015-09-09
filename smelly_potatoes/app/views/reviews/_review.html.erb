@@ -1,0 +1,9 @@
+  <tr>
+    <td><%=review.id%></td>
+    <td><%=review.movie_id %></td>
+    <td><%=review.reviewer_name%></td>
+    <td><%=review.title%></td>
+    <td><%=review.review_text%></td>
+    <td><%=review.created_at%></td>
+    <td><%= link_to "Delete", review_path(review.id), method: :delete %></td>
+  </tr>

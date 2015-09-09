@@ -1,31 +1,44 @@
 class ReviewsController < ApplicationController
 
+  respond_to :html, :js
+
   def index
+    @reviews = Review.includes(:movie).order('created_at DESC').all
     @movies = Movie.all
 
-    respond_to |format|
-      format.html
-      format.json
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
-  def new
-    @review = Review.new
-  end
 
   def create
     @review = Review.new(params_list)
     if @review.save
       flash[:success] = "new review added"
-      redirect_to @review
+
+      # respond_to do |format|
+      #   format.html
+      #   format.js
+      # end
+      redirect_to reviews_path
+
     else
       flash.now[:error]= "didn't create review"
-      render :new
+      render :index
     end
   end
 
-  def show
-    @review = review.find(:id)
+  def destroy
+    @review = Review.find(params[:id])
+    if @review.destroy
+      flash[:success] = "Your review has been deleted!"
+      redirect_to reviews_path
+    else
+      flash[:error] = "There was an error deleting the review"
+      redirect_to reviews_path
+    end
   end
 
   private
