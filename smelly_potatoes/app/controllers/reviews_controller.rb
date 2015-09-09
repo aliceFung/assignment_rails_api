@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   def index
     @reviews = Review.includes(:movie).order('created_at DESC').all
     @movies = Movie.all
+    @review = Review.new
 
     # respond_to do |format|
     #   format.html
@@ -18,11 +19,10 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:success] = "new review added"
 
-      # respond_to do |format|
-      #   format.html
-      #   format.js
-      # end
-      render :index
+      respond_to do |format|
+        format.html
+        format.js {render :index}
+      end
 
     else
       flash.now[:error]= "didn't create review"
